@@ -2,6 +2,10 @@
 
 Naive heuristic to solve N x N square sliding puzzle.
 
+https://en.wikipedia.org/wiki/15_puzzle
+
+![15 Sliding Puzzle](https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/15-puzzle-loyd.svg/220px-15-puzzle-loyd.svg.png)
+
 ### Overview
 
 The approach to solve is as below:
