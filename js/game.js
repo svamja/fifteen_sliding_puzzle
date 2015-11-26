@@ -1,3 +1,4 @@
+
 var matrix = [];
 var matrix_size = 4;
 var zero_i, zero_j;
@@ -287,7 +288,7 @@ function randomize() {
     path = random_path(path_size);
     animate_path(path, function() {
         entropy = get_entropy();
-        $('#status_text').html('randomization over: ' + entropy);
+        $('#status_text').html('randomization over');
     });
 }
 
@@ -357,8 +358,6 @@ function get_solution_path() {
                 step_size = getRandomInt(4, 10);
                 result = apply_random_path(step_size);
 
-                // console.log("alternative", m, result.path, result.entropies);
-
                 for(n = 0; n < step_size; n++) { // Steps within alternative
                     if(result.entropies[n] == 0) {
                         matrix = orig_matrix;
@@ -376,8 +375,6 @@ function get_solution_path() {
                     min_path = result.path;
                 }
             }
-
-            // console.log("iter", k, min_path, min_entropy, prev_entropy);
 
             // If entropy is decreased, apply it to solution
             if(min_entropy < prev_entropy || status_quo_count >= 10) {
@@ -403,8 +400,6 @@ function get_solution_path() {
 
         }
     }
-
-    console.log('iteration count: ' + k);
 
     matrix = orig_matrix;
     zero_i = orig_zeros[0];
@@ -432,13 +427,6 @@ $(function() {
     $('#square td').click(on_click);
     $('#btn_randomize').click(randomize);
     $('#btn_solve').click(solve);
-
-    // entropy = get_entropy();
-
-
-    // refresh_table();
-    // console.log(path);
-
 
 })
 
