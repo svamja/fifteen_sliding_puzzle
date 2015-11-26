@@ -10,6 +10,11 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
-  ]
+    "tests",
+    "packages"
+  ],
+  "homepage": "https://github.com/svamja/fifteen_sliding_puzzle",
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
 }
