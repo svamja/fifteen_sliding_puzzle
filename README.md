@@ -14,6 +14,10 @@ The approach to solve is as below:
 2. Guide the program based on "entropy", how far the current state is from ideal state ("solution")
 3. Use of random steps, iterations and corrections to improvise or arrive at the solution
 
+### Design
+
+See - https://docs.google.com/presentation/d/1mqVsxAJIcNjO3jXRwsjbqsu4TzjmWKcSnquSlFOCM3s/pub?start=false&loop=false&delayms=10000
+
 ### Demo
 
 Running at http://dev.cranesfocus.com/fifteen/
