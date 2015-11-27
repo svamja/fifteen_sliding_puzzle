@@ -45,7 +45,7 @@ Fifteen.Worker = function()
 
     var get_click_action = function(cell) {
         n = get_neighbors(cell);
-        for(i = 0; i < 4; i++) {
+        for(i = 0; i < Fifteen.Manager.actions.length; i++) {
             if(n[Fifteen.Manager.actions[i]] == 0) {
                 return opposite_actions[Fifteen.Manager.actions[i]];
             }

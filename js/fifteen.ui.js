@@ -1,5 +1,9 @@
 var Fifteen = Fifteen || {};
 
+var deep_copy = function(obj) {
+    return $.extend(true, {}, obj);
+};
+
 Fifteen.State = {
     size : 0,
     matrix : [],
@@ -64,6 +68,7 @@ Fifteen.UI = function()
             'height' : 70,
             'fontSize': '2em',
             'verticalAlign' : 'middle',
+            'position' : 'relative',
         });
         height = $selector.height();
         width = height;
@@ -77,6 +82,7 @@ Fifteen.UI = function()
         $(selector).find('td').css({ 
             'top' : 0,
             'left' : 0,
+            'zIndex': 1,
         });
         $(selector).find('tr').each(function(i, tr) {
             $(tr).find('td').each(function(j, td) {
@@ -90,6 +96,30 @@ Fifteen.UI = function()
         })
     };
 
+    var get_cell_selector = function(cell) {
+        var state = Fifteen.State;
+        return $(selector).find('td').eq(cell.i * state.size + cell.j);
+    };
+
+    var animate_cell = function(cell, movement) {
+        $td = get_cell_selector(cell);
+        $td.css({ 'zIndex' : 5 });
+        displacement = $td.outerHeight() + cell_spacing;
+        if(movement == 'top') {
+            anim_target = { 'top' : displacement };
+        }
+        if(movement == 'bottom') {
+            anim_target = { 'top' : -displacement };
+        }
+        if(movement == 'left') {
+            anim_target = { 'left' : displacement };
+        }
+        if(movement == 'right') {
+            anim_target = { 'left' : -displacement };
+        }
+        return $td.animate(anim_target).promise();
+    };
+
     var get_cell = function(cell_selector) {
         i = $(cell_selector).data('i');
         j = $(cell_selector).data('j');
@@ -99,10 +129,16 @@ Fifteen.UI = function()
         };
     };
 
+    var status = function(text) {
+        $('#status_text').html(text);
+    }
+
     return {
         init: init,
         refresh: refresh,
         get_cell: get_cell,
+        animate_cell: animate_cell,
+        status: status
     };
 
 }();
