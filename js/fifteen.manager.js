@@ -94,7 +94,8 @@ Fifteen.Manager = function()
         on_click: on_click,
         on_solve: on_solve,
         on_randomize: on_randomize,
-        random_int: random_int
+        random_int: random_int,
+        animate_path: animate_path
     };
 
 }();
